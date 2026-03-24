@@ -1,128 +1,165 @@
-/* Floating Glassmorphic Header */
-.header-glass {
-    position: sticky;
-    top: 20px;
-    z-index: 1000;
-    width: calc(100% - 40px);
-    max-width: 1200px;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 100px;
-    padding: 12px 24px;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+.top-bar {
+  background: var(--secondary);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.header-glass.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.15);
-    transform: translateY(2px);
+.top-bar-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: inherit;
+  transition: var(--transition);
 }
 
-.logo-section {
-    transition: transform 0.3s ease;
+.top-bar-link:hover {
+  color: var(--primary-light);
 }
 
-.logo-section:hover {
-    transform: scale(1.02);
+.header-main {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 16px 0;
+  transition: var(--transition-slow);
+  border-bottom: 1px solid var(--border);
 }
 
-.header-glass .nav-links {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    background: transparent;
+.header-main.scrolled {
+  padding: 12px 0;
+  box-shadow: var(--shadow-md);
+  background: rgba(255, 255, 255, 0.95);
 }
 
-.header-glass .nav-link {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: var(--gray-600);
-    padding: 8px 16px;
-    border-radius: 100px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: var(--transition);
 }
 
-.header-glass .nav-link::after {
-    display: none; /* Disable default underline */
+.logo-group:hover {
+  transform: scale(1.02);
 }
 
-.header-glass .nav-link:hover {
-    color: var(--primary);
-    background: rgba(211, 47, 47, 0.05);
+.logo-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  box-shadow: var(--shadow-glow);
 }
 
-.header-glass .nav-link.active {
-    color: var(--white);
-    background: var(--gradient-primary);
-    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.3);
+.logo-text {
+  display: flex;
+  flex-direction: column;
 }
 
-.header-glass .btn-primary {
-    border-radius: 100px;
-    padding: 10px 24px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
-    margin-left: 12px;
+.brand-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--secondary);
 }
 
-.header-glass .btn-primary:hover {
-    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.6);
-    transform: translateY(-2px);
+.brand-sub {
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
-/* Mobile Adjustments */
-@media (max-width: 900px) {
-    .header-glass {
-        top: 0;
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
-        padding: 16px 24px;
-        border: none;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-    
-    .header-glass .nav-links {
-        position: fixed;
-        top: 72px;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.98);
-        flex-direction: column;
-        padding: 24px;
-        gap: 16px;
-        border-bottom: 1px solid var(--gray-200);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        backdrop-filter: blur(20px);
-        transform: translateY(-100%);
-        opacity: 0;
-        pointer-events: none;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
 
-    .header-glass .nav-links.open {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
-    }
+.nav-item {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  transition: var(--transition);
+}
 
-    .header-glass .nav-link {
-        width: 100%;
-        text-align: center;
-        font-size: 1.1rem;
-        padding: 12px;
-    }
+.nav-item:hover {
+  color: var(--primary);
+  background: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.05);
+}
 
-    .header-glass .btn-primary {
-        width: 100%;
-        margin-left: 0;
-        margin-top: 12px;
-    }
+.nav-item.active {
+  color: var(--primary);
+  background: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.08);
+}
+
+.btn-quote {
+  margin-left: 12px;
+  padding: 10px 24px !important;
+  font-size: 0.9rem !important;
+}
+
+.mobile-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+@media (max-width: 991px) {
+  .hide-mobile { display: none; }
+  
+  .mobile-toggle { display: block; }
+  
+  .nav-menu {
+    position: fixed;
+    top: 77px;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    flex-direction: column;
+    padding: var(--space-xl);
+    gap: var(--space-md);
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+  }
+  
+  .nav-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  .nav-item {
+    width: 100%;
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 12px;
+  }
+  
+  .btn-quote {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 12px;
+  }
 }

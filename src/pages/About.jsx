@@ -1,81 +1,76 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import truckImg from '../assets/truck.jpg';
 import './About.css';
 
 const About = () => {
-
     useEffect(() => {
-        // AOS Init
         if (window.AOS) {
-            window.AOS.init({ duration: 800, once: true, offset: 80 });
+            window.AOS.init({ duration: 1000, once: true, offset: 100 });
         }
     }, []);
 
     return (
-        <div className="about-page">
-            {/*  Page Header  */}
+        <div className="about-page fade-in">
+            {/* Page Header */}
             <section className="page-header">
-                <div className="page-header-overlay"></div>
                 <div className="container">
-                    <div className="page-header-content">
-                        <span className="page-tag">Know Us Better</span>
-                        <h1>About <span className="text-gradient" style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Roveta Logistics</span></h1>
-                        <nav className="breadcrumb" aria-label="Breadcrumb">
-                            <Link to="/">Home</Link>
-                            <i className="fas fa-chevron-right"></i>
-                            <span>About Us</span>
-                        </nav>
+                    <span className="section-tag" style={{ color: 'var(--primary-light)' }}>Who We Are</span>
+                    <h1 className="heading-lg">About <span className="text-gradient">Roveta Logistics</span></h1>
+                    <div className="flex justify-center items-center gap-md">
+                        <Link to="/" style={{ color: 'white', fontWeight: 600 }}>Home</Link>
+                        <i className="fas fa-chevron-right" style={{ fontSize: '0.7rem', opacity: 0.5 }}></i>
+                        <span style={{ opacity: 0.8 }}>About Us</span>
                     </div>
                 </div>
             </section>
 
-            {/*  Company Story  */}
-            <section className="section about-story py-lg">
+            {/*  Our Story  */}
+            <section className="about-story">
                 <div className="container">
                     <div className="about-story-grid">
                         <div className="about-story-content" data-aos="fade-right">
-                            <span className="section-tag">Our Story</span>
-                            <h2>Moving Sri Lanka <span className="text-gradient" style={{ background: 'var(--gradient-primary)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Forward</span></h2>
-                            <p>Roveta Logistics was founded with a simple yet powerful vision: to provide reliable and
-                                affordable goods transportation services to businesses and individuals across Sri Lanka.</p>
-                            <p>Based in Wekada, Panadura, we have grown from a small local operation to an islandwide logistics
-                                provider, serving all 25 districts with dedication and professionalism. Our team understands the
-                                unique challenges of goods transportation in Sri Lanka, and we've built our services to address
-                                every need.</p>
-                            <p>Every shipment we handle is treated with the utmost care and attention, ensuring your goods
-                                arrive safely and on time at their destination.</p>
+                            <span className="section-tag">Our Journey</span>
+                            <h2 className="heading-md">A Legacy of <span className="text-gradient">Reliable</span> Transportation</h2>
+                            <p>Established with a vision to redefine logistics in Sri Lanka, Roveta Logistics has grown from a local service to a trusted islandwide partner. Our focus has always been on bridging distances with speed and integrity.</p>
+                            <p>We understand that every shipment carries more than just goods—it carries your trust. That's why we invest in professional training and modern fleet management to ensure we remain the gold standard in the industry.</p>
                         </div>
-                        <div className="about-story-visual" data-aos="fade-left" style={{ position: 'relative' }}>
-                            <img src={truckImg} alt="Roveta Logistics Fleet"
-                                style={{ width: '100%', height: '450px', objectFit: 'cover', borderRadius: 'var(--radius-xl)', boxShadow: 'var(--shadow-xl)', display: 'block' }} />
+                        <div className="about-image-side" data-aos="fade-left">
+                            <div className="about-image-card">
+                                <div className="about-image-placeholder">
+                                    <i className="fas fa-truck-container"></i>
+                                    <h3>Sri Lanka's Trusted Fleet</h3>
+                                </div>
+                                <div className="about-image-badge">
+                                    <span className="badge-number" data-aos="zoom-in" data-aos-delay="500">25+</span>
+                                    <span className="badge-text">Districts Covered</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/*  Mission, Vision, Values  */}
-            <section className="section mvv-section py-lg">
+            {/* Mission, Vision, Values */}
+            <section className="mvv-section">
                 <div className="container">
+                    <div className="section-header" data-aos="fade-up">
+                        <span className="section-tag">Core Foundation</span>
+                        <h2 className="heading-md">Purpose & <span className="text-gradient">Principles</span></h2>
+                    </div>
+                    
                     <div className="mvv-grid">
                         <div className="mvv-card" data-aos="fade-up" data-aos-delay="100">
-                            <div className="mvv-icon">
-                                <i className="fas fa-bullseye"></i>
-                            </div>
-                            <h3>Our Mission</h3>
-                            <p>To provide the most reliable, efficient, and affordable goods transportation service in Sri
-                                Lanka, ensuring every delivery exceeds our clients' expectations through commitment to safety,
-                                punctuality, and professionalism.</p>
-                        </div>
-                        <div className="mvv-card" data-aos="fade-up" data-aos-delay="200">
-                            <div className="mvv-icon">
-                                <i className="fas fa-eye"></i>
-                            </div>
+                            <div className="mvv-icon"><i className="fas fa-eye"></i></div>
                             <h3>Our Vision</h3>
-                            <p>To become Sri Lanka's most trusted logistics partner, recognized for our exceptional service
-                                quality, operational excellence, and contribution to the nation's economic growth through
-                                seamless transportation solutions.</p>
+                            <p>To be the most preferred and technologically advanced logistics partner in Sri Lanka, setting new benchmarks for efficiency.</p>
                         </div>
+                        
+                        <div className="mvv-card" data-aos="fade-up" data-aos-delay="200">
+                            <div className="mvv-icon"><i className="fas fa-bullseye"></i></div>
+                            <h3>Our Mission</h3>
+                            <p>Delevering seamless, safe, and cost-effective logistics solutions that empower our clients to reach their full potential.</p>
+                        </div>
+                        
                         <div className="mvv-card" data-aos="fade-up" data-aos-delay="300">
                             <div className="mvv-icon">
                                 <i className="fas fa-heart"></i>
