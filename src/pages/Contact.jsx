@@ -111,12 +111,6 @@ const Contact = () => {
                                 </div>
                             </div>
                         </div>
-
-                        <div className="contact-card" style={{ padding: 'var(--space-2xl)' }}>
-                            <h4 style={{ fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '16px', color: 'var(--primary)' }}>Payment Notice</h4>
-                            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '12px' }}>For all cheque payments, please ensure they are drawn in favor of:</p>
-                            <p style={{ fontWeight: 800, color: 'var(--text-main)', fontSize: '1.1rem' }}>R.G.K.I Sirisena</p>
-                        </div>
                     </div>
                 </div>
             </section>

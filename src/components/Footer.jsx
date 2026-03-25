@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.jpeg';
 
 const Footer = () => {
   return (
@@ -9,7 +10,9 @@ const Footer = () => {
           {/* Brand Info */}
           <div className="footer-brand" data-aos="fade-up">
             <Link to="/" className="flex items-center gap-sm" style={{ marginBottom: '1.5rem', textDecoration: 'none' }}>
-              <div className="logo-icon"><i className="fas fa-truck-moving" style={{ color: 'var(--primary)', fontSize: '1.8rem' }}></i></div>
+              <div className="logo-icon-container">
+                <img src={logo} alt="Roveta Logistics Logo" className="footer-logo" />
+              </div>
               <div className="flex flex-col">
                 <span style={{ fontSize: '1.4rem', fontWeight: 900, color: '#FFFFFF', lineHeight: 1, letterSpacing: '1px' }}>ROVETA</span>
                 <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--primary)', lineHeight: 1, marginLeft: '2px' }}>LOGISTICS</span>
@@ -58,7 +61,6 @@ const Footer = () => {
         
         <div className="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Roveta Logistics. All rights reserved.</p>
-          <p style={{ fontSize: '0.8rem', opacity: 0.6 }}>Payment Governance: All cheques to be drawn in favor of <strong>R.G.K.I Sirisena</strong></p>
         </div>
       </div>
     </footer>

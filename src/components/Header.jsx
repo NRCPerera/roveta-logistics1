@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Truck, Phone, Mail, Clock } from 'lucide-react';
+import { Menu, X, Phone, Mail, Clock } from 'lucide-react';
+import logo from '../assets/logo.jpeg';
 import './Header.css';
 
 const Header = () => {
@@ -49,8 +50,8 @@ const Header = () => {
       <header className={`header-main ${scrolled ? 'scrolled' : ''}`}>
         <div className="container flex justify-between items-center">
           <Link to="/" className="logo-group" onClick={closeMenu}>
-            <div className="logo-icon">
-              <Truck size={28} />
+            <div className="logo-icon-container">
+              <img src={logo} alt="Roveta Logistics Logo" className="header-logo" />
             </div>
             <div className="logo-text">
               <span className="brand-name">Roveta</span>

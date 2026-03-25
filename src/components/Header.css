@@ -49,18 +49,6 @@
   transform: scale(1.02);
 }
 
-.logo-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--gradient-primary);
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #FFFFFF;
-  box-shadow: var(--shadow-glow);
-}
-
 .logo-text {
   display: flex;
   flex-direction: column;

@@ -16,30 +16,23 @@ const Services = () => {
             icon: 'fas fa-truck-fast',
             title: 'LCL & FCL Transport',
             desc: 'Flexible shipping solutions for both Less than Container Load and Full Container Load requirements across the island.',
-            features: ['Shared cargo options', 'Full vehicle dedicated', 'Priority routing', 'Multi-stop delivery'],
-            rates: { label: 'Base Rate', value: 'RS. 150/KM' }
+            features: ['Shared cargo options', 'Full vehicle dedicated', 'Priority routing', 'Multi-stop delivery']
         },
         {
             icon: 'fas fa-box-open',
             title: 'Safe Cargo Handling',
             desc: 'Expert loading and unloading services by trained professionals specialized in handling fragile and high-value materials.',
-            features: ['Fragile item care', 'Heavy lift equipment', 'On-site packing', 'Warehouse transit'],
-            rates: { label: 'Service Fee', value: 'On Request' }
+            features: ['Fragile item care', 'Heavy lift equipment', 'On-site packing', 'Warehouse transit']
         },
         {
             icon: 'fas fa-route',
             title: 'Islandwide Logistics',
             desc: 'A comprehensive network that ensures your goods reach any of the 25 districts in Sri Lanka with guaranteed punctuality.',
-            features: ['Daily scheduled routes', 'Real-time updates', 'Last-mile delivery', 'Provincial hubs'],
-            rates: { label: 'Coverage', value: 'All Districts' }
+            features: ['Daily scheduled routes', 'Real-time updates', 'Last-mile delivery', 'Provincial hubs']
         }
     ];
 
     const faqs = [
-        {
-            q: 'How do you calculate the transportation cost?',
-            a: 'Our rates are primarily calculated based on the total distance (per kilometer) from the pickup point to the destination. We provide a transparent base rate of RS. 150/KM for standard goods.'
-        },
         {
             q: 'Do you provide insurance for transported goods?',
             a: 'Yes, we offer basic cargo protection. For high-value shipments, we can arrange specialized insurance cover through our partners to ensure complete peace of mind.'
@@ -89,12 +82,35 @@ const Services = () => {
                                         <li key={i}><i className="fas fa-check"></i> {f}</li>
                                     ))}
                                 </ul>
-                                <div className="rates-box">
-                                    <div className="rate-item">
-                                        <span className="rate-label">{service.rates.label}</span>
-                                        <span className="rate-value">{service.rates.value}</span>
-                                    </div>
-                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Process Section */}
+            <section className="process-section py-4xl" style={{ backgroundColor: 'var(--background)', position: 'relative', overflow: 'hidden' }}>
+                {/* Decorative background circle */}
+                <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: '400px', height: '400px', background: 'radial-gradient(circle, hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.03), transparent)', borderRadius: '50%', zIndex: 0 }}></div>
+                
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                    <div className="section-header" data-aos="fade-up">
+                        <span className="section-tag">Workflow</span>
+                        <h2 className="heading-md">Our <span className="text-gradient">Professional</span> Approach</h2>
+                        <p className="text-lg">Experience a seamless end-to-end logistics process optimized for efficiency.</p>
+                    </div>
+
+                    <div className="process-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 'var(--space-2xl)', marginTop: 'var(--space-3xl)' }}>
+                        {[
+                            { step: '01', icon: 'fas fa-clipboard-list', title: 'Consultation', desc: 'We analyze your logistics requirements to recommend the best shipping solution.' },
+                            { step: '02', icon: 'fas fa-truck-loading', title: 'Secure Loading', desc: 'Professional handling and packing of your cargo ensuring maximum safety.' },
+                            { step: '03', icon: 'fas fa-map-marked-alt', title: 'Islandwide Delivery', desc: 'Timely and efficient delivery to any of the 25 districts in Sri Lanka.' }
+                        ].map((process, i) => (
+                            <div key={i} className="process-card" data-aos="fade-up" data-aos-delay={i * 150} style={{ textAlign: 'center', position: 'relative' }}>
+                                <div className="step-number-pill" style={{ display: 'inline-block', padding: '10px 24px', background: 'hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.05)', borderRadius: 'var(--radius-full)', color: 'var(--primary)', fontWeight: 800, fontSize: '0.8rem', marginBottom: '20px', letterSpacing: '2px' }}>STEP {process.step}</div>
+                                <div style={{ width: '80px', height: '80px', margin: '0 auto 24px', background: 'var(--gradient-primary)', borderRadius: 'var(--radius-lg)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontSize: '2rem', boxShadow: 'var(--shadow-glow)' }}><i className={process.icon}></i></div>
+                                <h3>{process.title}</h3>
+                                <p style={{ color: 'var(--text-muted)' }}>{process.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -105,8 +121,8 @@ const Services = () => {
             <section className="faq-section">
                 <div className="container">
                     <div className="section-header" data-aos="fade-up">
-                        <span className="section-tag">Information</span>
-                        <h2 className="heading-md">Common <span className="text-gradient">Questions</span></h2>
+                        <span className="section-tag">Have Questions?</span>
+                        <h2 className="heading-md">Common <span className="text-gradient">Inquiries</span></h2>
                     </div>
 
                     <div className="faq-grid">
@@ -122,25 +138,21 @@ const Services = () => {
                                     <h4>{faq.q}</h4>
                                     <i className={`fas fa-chevron-${activeFaq === idx ? 'up' : 'down'} faq-icon`}></i>
                                 </div>
-                                {activeFaq === idx && (
+                                <div 
+                                    className="faq-answer-container" 
+                                    style={{ 
+                                        maxHeight: activeFaq === idx ? '500px' : '0', 
+                                        overflow: 'hidden', 
+                                        transition: 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)' 
+                                    }}
+                                >
                                     <div className="faq-answer">
                                         <p>{faq.a}</p>
                                     </div>
-                                )}
+                                </div>
                             </div>
                         ))}
                     </div>
-                </div>
-            </section>
-
-            {/*  CTA Banner  */}
-            <section className="py-xl" style={{ background: 'var(--primary)', color: 'white' }}>
-                <div className="container text-center">
-                    <h2 className="heading-md" style={{ marginBottom: '24px' }}>Need a Specialized Service?</h2>
-                    <p className="text-lg" style={{ marginBottom: '32px', opacity: 0.9 }}>Contact our logistics experts for a custom strategy and a competitive quote.</p>
-                    <Link to="/contact" className="btn btn-secondary btn-lg" style={{ background: 'white', color: 'var(--primary)' }}>
-                        Inquire Now <i className="fas fa-arrow-right"></i>
-                    </Link>
                 </div>
             </section>
         </div>

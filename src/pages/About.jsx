@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import truckImg from '../assets/truck.jpg';
 import './About.css';
 
 const About = () => {
@@ -36,14 +37,7 @@ const About = () => {
                         </div>
                         <div className="about-image-side" data-aos="fade-left">
                             <div className="about-image-card">
-                                <div className="about-image-placeholder">
-                                    <i className="fas fa-truck-container"></i>
-                                    <h3>Sri Lanka's Trusted Fleet</h3>
-                                </div>
-                                <div className="about-image-badge">
-                                    <span className="badge-number" data-aos="zoom-in" data-aos-delay="500">25+</span>
-                                    <span className="badge-text">Districts Covered</span>
-                                </div>
+                                <img src={truckImg} alt="Sri Lanka's Trusted Fleet" className="about-main-image" />
                             </div>
                         </div>
                     </div>
